@@ -37,7 +37,6 @@
                     <div class="col py-3" *ngIf="!dia.ativo">
                       <i *ngIf="dia.ativo == false">Fechado</i>
                     </div>
-                    {{dia|json}}
 
                     <div class="col-5" *ngIf="dia.ativo">
                       <div class="justify-content-center" *ngFor="let horario of dia.horarios; let j = index">
