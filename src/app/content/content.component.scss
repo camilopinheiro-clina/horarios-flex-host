@@ -1,0 +1,42 @@
+:host {
+  $form-floating-height: 2em;
+  $form-floating-line-height: 1.25;
+  $form-floating-padding-x: 1px;
+  $form-floating-padding-y: 1rem;
+  $form-floating-input-padding-t: 1.625rem;
+  $form-floating-input-padding-b: 0.625rem;
+  $form-floating-label-opacity: 0.65;
+  $form-floating-label-transform: scale(0.85) translateY(-0.5rem)
+    translateX(0.15rem);
+  $form-floating-transition: opacity 0.1s ease-in-out,
+    transform 0.1s ease-in-out;
+}
+.horarios {
+  .form-floating {
+    label {
+      padding: 0.61em 1.2em;
+    }
+    input {
+      text-transform: capitalize;
+      height: calc(3rem + 2px) !important;
+    }
+  }
+}
+
+label {
+  margin: 0;
+}
+
+::ng-deep typeahead-container,
+::ng-deep .dropdown-menu {
+  height: auto !important;
+}
+
+.list-group-item {
+  min-height: 80px;
+}
+
+.form-check-input:checked {
+  background-color: black !important;
+  border-color: black !important;
+}

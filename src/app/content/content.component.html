@@ -1,0 +1,108 @@
+<section class="px-4  py-4 mt-2" style="overflow: scroll;">
+  <div class="mb-5">
+    <h5>Disponibilidade</h5>
+    <small class="text-muted">Configure os horários em que estiver disponível para reservas.
+    </small>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div id="Horarios" class="mb-5 px-2">
+        <div class="card px-4 row horarios" style="    border-radius: 0.125rem;">
+          <div class="border-bottom w-100 d-flex justify-content-between py-4">
+            <h6>Alterar as horas de início e término da disponibilidade do seu consultório</h6>
+            <span class="badge bg-light fw-normal fs-6 border py-2 px-3 text-dark">
+              <i class="fal  fa-badge-check"></i>
+              Horário semanal</span>
+
+          </div>
+          <div class="col">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item pl-4 d-flex align-items-center"
+                *ngFor="let dia of diasSemana; let i = index">
+                <div class="flex-fill">
+                  <div class="row w-100">
+                    <div class="col-md-4 col-sm-auto pt-3 px-0 pb-2 align-items-center">
+                      <div class="form-check form-switch">
+                        <label class="form-check-label m-0" for="customSwitch{{ i }}">{{ dia.label }}</label>
+                        <input
+                          type="checkbox"
+                          (change)="alternarEstadoDia(dia)"
+                          [checked]="dia?.horarios.length > 0"
+                          [(ngModel)]="dia.ativo"
+                          class="form-check-input"
+                          id="customSwitch{{ i }}" />
+                      </div>
+                    </div>
+                    <div class="col py-3" *ngIf="!dia.ativo">
+                      <i *ngIf="dia.ativo == false">Fechado</i>
+                    </div>
+                    {{dia|json}}
+
+                    <div class="col-5" *ngIf="dia.ativo">
+                      <div class="justify-content-center" *ngFor="let horario of dia.horarios; let j = index">
+                        <div class="col-auto" *ngIf="dia.ativo">
+                          <div class="row py-1">
+                            <div class="form-floating col">
+                              <input
+                                type="tel"
+                                [typeahead]="sugestoesHorarios"
+                                [(ngModel)]="horario.horarioInicial"
+                                [typeaheadMinLength]="0"
+                                [typeaheadScrollable]="true"
+                                class="form-control form-control-sm"
+                                id="floatingInputAbre{{ j }}"
+                                placeholder="19:00" />
+                              <label class="text-muted" for="floatingInputAbre{{ j }}">Abre às</label>
+                            </div>
+                            <div class="form-floating col">
+                              <input
+                                type="tel"
+                                [typeahead]="sugestoesHorarios"
+                                [(ngModel)]="horario.horarioFinal"
+                                [typeaheadMinLength]="0"
+                                [typeaheadScrollable]="true"
+                                class="form-control form-control-sm"
+                                id="floatingInputFecha{{ j }}"
+                                placeholder="20:00" />
+                              <label class="text-muted" for="floatingInputFecha{{ j }}">Fecha às</label>
+                            </div>
+                            <div class="col-auto ps-0 d-flex align-items-center">
+
+                              <button type="button" class="btn btn-rounded btn-outline-default border-0"
+                                (click)="removerCampoHorario(dia, horario)">
+                                <i class="fal fa-trash text-muted" style="cursor: pointer"></i>
+                              </button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                      <div class="mt-2">
+                        <button type="button" *ngIf="dia.ativo && diasSemana?.length>0"
+                          class="btn btn-rounded btn-outline-default border-0"
+                          (click)="addCampoHorario(dia)">
+                          <i class="fal fa-plus text-muted" style="cursor: pointer"></i>
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group-item d-flex justify-content-end align-items-center">
+                <a class="btn btn-primary w-100px">Salvar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div>
+        Padrão</div>
+    </div>
+  </div>
+</section>
