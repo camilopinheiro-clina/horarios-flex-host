@@ -1,7 +1,7 @@
 <section class="px-4  py-4 mt-2 mb-5" style="overflow: scroll;">
   <div class="mb-5 d-flex justify-content-between">
     <div>
-      <h5>Disponibilidade</h5>
+      <h4 class="fw-bolder">Disponibilidade</h4>
       <small class="text-muted">Configure os horários em que estiver disponível para reservas.
       </small>
       <br>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="row ">
+  <div class="row gx-5">
     <div class="col">
       <div id="Horarios" class="mb-5 px-2">
         <div class="card px-4 row horarios" style="    border-radius: 0.125rem;">
@@ -23,7 +23,7 @@
             <span class="badge bg-light fw-normal fs-6 border py-2 px-3 text-dark">
               <i class="fas text-primary fa-badge-check"></i>
               Horário semanal</span>
-            <a href="" class="text-small" style="text-decoration: none;">Definir horário comercial</a>
+            <a href="" class="text-small button-soft" style="text-decoration: none;">Definir horário comercial</a>
 
           </div>
           <div class="col">
@@ -64,7 +64,7 @@
                                 class="form-control form-control-sm"
                                 id="floatingInputAbre{{ j }}"
                                 placeholder="19:00" />
-                              <label class="text-muted" for="floatingInputAbre{{ j }}">Abre às</label>
+                              <label class="text-muted" for="floatingInputAbre{{ j }}">De</label>
                             </div>
                             <div class="form-floating col">
                               <input
@@ -76,11 +76,11 @@
                                 class="form-control form-control-sm"
                                 id="floatingInputFecha{{ j }}"
                                 placeholder="20:00" />
-                              <label class="text-muted" for="floatingInputFecha{{ j }}">Fecha às</label>
+                              <label class="text-muted" for="floatingInputFecha{{ j }}">Até</label>
                             </div>
                             <div class="col-auto ps-0 d-flex align-items-center">
-                              <input value=" R$ 10,00" style="max-width: 7em;"
-                                class="form-control form-control-sm fw-normal fs-6 border py-2 px-2 text-dark">
+                              <input value=" R$ 10,00" style="max-width: 7em; font-size: 14px!important;"
+                                class="form-control form-control-sm fw-normal border py-2 px-2 text-dark">
                               <button type="button" class="btn btn-rounded btn-outline-default border-0"
                                 (click)="removerCampoHorario(dia, horario)">
                                 <i class="fal fa-trash text-muted" style="cursor: pointer"></i>
@@ -135,15 +135,19 @@
               <br>
               <small>12/10/2022</small>
             </p>
-            <a href="" class="text-small" style="text-decoration: none;">Definir</a>
+            <div>
+              <a href="" class="button-soft text-small" style="text-decoration: none;">Definir</a>
+            </div>
           </li>
           <li class="d-flex border-bottom  justify-content-between pt-3">
             <p>
               <small class=" text-muted">Dia de Finados</small>
               <br>
-              <small>12/10/2022</small>
+              <small>02/11/2022</small>
             </p>
-            <a href="" class="text-small" style="text-decoration: none;">Definir</a>
+            <div>
+              <a href="" class="button-soft text-small" style="text-decoration: none;">Definir</a>
+            </div>
           </li>
           <li class="d-flex border-bottom justify-content-between pt-3">
             <p>
@@ -151,7 +155,9 @@
               <br>
               <small>25/12/2022</small>
             </p>
-            <a href="" class="text-small" style="text-decoration: none;">Definir</a>
+            <div>
+              <a href="" class="button-soft text-small" style="text-decoration: none;">Definir</a>
+            </div>
           </li>
         </ul>
         <div class="px-3 py-4">

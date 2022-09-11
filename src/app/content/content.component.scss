@@ -14,7 +14,8 @@
 .horarios {
   .form-floating {
     label {
-      padding: 0.61em 1.2em;
+      padding: 0.81em 1.5em;
+      font-size: 14px;
     }
     input {
       text-transform: capitalize;
@@ -46,4 +47,17 @@ label {
 .form-check-input:checked {
   background-color: black !important;
   border-color: black !important;
+}
+
+.button-soft {
+  color: #1a73e8;
+  transition: background-color 0.4s ease;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 3px 8px;
+  cursor: pointer;
+  line-height: 2em;
+  &:hover {
+    background: #e8f0fe;
+  }
 }
