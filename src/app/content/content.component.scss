@@ -18,9 +18,16 @@
     }
     input {
       text-transform: capitalize;
-      height: calc(3rem + 2px) !important;
+      height: calc(3rem - 4px) !important;
     }
   }
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  opacity: 0.65;
+  transform: scale(0.65) translateY(-0.4rem) translateX(0.75rem);
 }
 
 label {

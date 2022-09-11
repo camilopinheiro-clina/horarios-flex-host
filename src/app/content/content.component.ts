@@ -45,7 +45,7 @@ export class ContentComponent implements OnInit {
     this.diasSemana = new Array<DiaSemana>();
     const horario = {
       horarioInicial: '08:00',
-      horarioFinal: '08:00',
+      horarioFinal: '18:00',
     }
     Object.keys(DiaSemanaEnum).map((value: any) => this.diasSemana.push({ value: value, label: DiaSemanaEnum[value], horarios: [horario] }));
   }
