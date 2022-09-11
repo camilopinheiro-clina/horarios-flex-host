@@ -17,13 +17,13 @@ export class DiaSemana {
 }
 
 export enum DiaSemanaEnum {
+  DOMINGO = "Domingo",
   SEGUNDA_FEIRA = "Segunda-feira",
   TERCA_FEIRA = "Terça-feira",
   QUARTA_FEIRA = "Quarta-feira",
   QUINTA_FEIRA = "Quinta-feira",
   SEXTA_FEIRA = "Sexta-feira",
   SABADO = "Sabado",
-  DOMINGO = "Domingo"
 }
 
 @Component({
@@ -39,22 +39,14 @@ export class ContentComponent implements OnInit {
 
   constructor() {
     this.diasSemana = new Array<DiaSemana>();
-
-
-
-    this.diasSemana = new Array<DiaSemana>();
-    const horario = {
-      horarioInicial: '08:00',
-      horarioFinal: '18:00',
-    }
-    Object.keys(DiaSemanaEnum).map((value: any) => this.diasSemana.push({ value: value, label: DiaSemanaEnum[value], horarios: [horario] }));
+    Object.keys(DiaSemanaEnum).map((value: any) => this.diasSemana.push({ value: value, label: DiaSemanaEnum[value], horarios: [] }));
   }
 
   ngOnInit(): void {
   }
 
   addCampoHorario(dia: any) {
-    dia.horarios = [...dia?.horarios, { horarioInicial: null, horarioFinal: null, diaSemana: dia.value, idEstabelecimento: 1, status: true }];
+    dia.horarios = [...dia?.horarios, { horarioInicial: null, horarioFinal: null, diaSemana: dia.value }];
   }
 
   removerCampoHorario(dia: any, horario: any) {
@@ -77,6 +69,25 @@ export class ContentComponent implements OnInit {
       this.diasSemana[diaIndex].horarios = new Array<Horario>();
     }
   }
+  definirHorarioComercial() {
+    this.diasSemana.filter(a => a.value != "DOMINGO" && a.value != "SABADO").map(a => {
+      a.horarios = [{
+        horarioInicial: '08:00',
+        diaSemana: a.value,
+        horarioFinal: '12:00',
+      }, {
+        horarioInicial: '13:00',
+        diaSemana: a.value,
+        horarioFinal: '18:00',
+      }];
+      a.ativo = true;
+      return a;
+    })
 
+    this.diasSemana.filter(a => a.value == "DOMINGO" || a.value == "SABADO").map(a => {
+      a.ativo = false;
+      return a;
+    })
+  }
 
 }

@@ -23,7 +23,8 @@
             <span class="badge bg-light fw-normal fs-6 border py-2 px-3 text-dark">
               <i class="fas text-primary fa-badge-check"></i>
               Horário semanal</span>
-            <a href="" class="text-small button-soft" style="text-decoration: none;">Definir horário comercial</a>
+            <a (click)="definirHorarioComercial()" class="text-small button-soft" style="text-decoration: none;">Definir
+              horário comercial</a>
 
           </div>
           <div class="col">
@@ -104,25 +105,55 @@
                 </div>
               </div>
               <div class="list-group-item d-flex justify-content-end align-items-center">
-                <a class="btn btn-primary w-100px">Salvar</a>
+                <a class="btn btn-dark w-100px">Salvar</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="card py-3 mt-5 px-3" style="border-top-left-radius: 0;border-top-right-radius: 0;">
+        <div class="w-100 border-bottom px-2 pb-3">
+          <div class="d-flex justify-content-between">
+            <h5>Exceções</h5>
+          </div>
+          <small class="text-muted">Com base nesta tabela, os valores preenchidos irão sobrescrever a tabela de
+            Disponibilidade e valor.
+          </small>
+        </div>
+
+        <ul style="list-style-type: none; margin: 0; padding: 0 1em;">
+          <li class="d-flex border-bottom  justify-content-between pt-3">
+            <p>
+              <small>02/11/2022</small>
+            </p>
+            <div>
+              <a href="" class="button-soft text-small" style="text-decoration: none;">Definir</a>
+            </div>
+          </li>
+        </ul>
+        <div class="px-3 pt-4">
+          <a href="" class="text-small button-soft" style="text-decoration: none;">Cadastrar exceção</a>
+        </div>
+      </div>
+
+
     </div>
-    <div class="col-5 pe-4">
-      <div class="card p-4" style="border-top-left-radius: 0;border-top-right-radius: 0;">
+    <div class="col-5 pe-5">
+      <div class="card px-4 pt-4 pb-3" style="border-top-left-radius: 0;border-top-right-radius: 0;">
         <h5>Valor por hora</h5>
         <small class="text-muted">Os valores poderão ser alterados individualmente para cada horário</small>
         <input type="text" value="R$ 10,00"
-          class="form-control mt-4 w-auto form-control sm">
+          class="form-control mt-4 w-auto">
+        <div class="d-flex mt-3 mb-0 justify-content-end align-items-center">
+          <a class="btn btn-dark btn-sm w-100px">Salvar</a>
+        </div>
       </div>
-      <br>
-      <div class="card py-3 px-3" style="border-top-left-radius: 0;border-top-right-radius: 0;">
+
+      <div class="card py-3 mt-5 px-3" style="border-top-left-radius: 0;border-top-right-radius: 0;">
         <div class="w-100 border-bottom px-2 pb-3">
           <div class="d-flex justify-content-between">
-            <h5>Horários especiais</h5>
+            <h5>Datas especiais e feriados</h5>
           </div>
           <small class="text-muted">Defina o horário de funcionamento para os dias em que seu consultório tem uma
             programação diferente da normal
@@ -160,10 +191,14 @@
             </div>
           </li>
         </ul>
-        <div class="px-3 py-4">
-          <a href="" class="text-small" style="text-decoration: none;">Adicionar outra data</a>
+        <div class="px-3 pt-4">
+          <a href="" class="text-small button-soft" style="text-decoration: none;">Adicionar outra data</a>
         </div>
       </div>
+      <br>
+      <a href="" class="button-soft p-2 border text-small" style="text-decoration: none;">Marcar como temporariamente
+        fechado</a>
+
     </div>
   </div>
 </section>

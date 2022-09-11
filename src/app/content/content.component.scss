@@ -50,14 +50,19 @@ label {
 }
 
 .button-soft {
-  color: #1a73e8;
+  color: #7a35ff;
   transition: background-color 0.4s ease;
   border-radius: 4px;
+  font-weight: 500;
   font-size: 14px;
   padding: 3px 8px;
   cursor: pointer;
   line-height: 2em;
   &:hover {
-    background: #e8f0fe;
+    background: #7835ff1b;
   }
+}
+
+.text-muted {
+  color: rgb(136 136 136) !important;
 }
