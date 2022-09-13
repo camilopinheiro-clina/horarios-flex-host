@@ -1,4 +1,4 @@
-<section class="px-5  py-4 mt-2 mb-5" style="overflow: scroll;">
+<section class="px-5  py-4 mt-2 mb-5">
   <div class="mb-5 d-flex justify-content-between">
     <div>
       <h4 class="fw-bolder">Disponibilidade</h4>
@@ -10,6 +10,7 @@
       </small>
     </div>
   </div>
+
 
   <div class="row gx-5">
     <div class="col-7">
@@ -50,7 +51,8 @@
                     <div class="col-7" *ngIf="dia.ativo">
                       <div class="justify-content-center" *ngFor="let horario of dia.horarios; let j = index">
                         <div class="col-auto" *ngIf="dia.ativo">
-                          <div class="row py-1">
+                          <div class="row py-1 "
+                            [ngClass]="{'bg-light border rounded': horario.excecao}">
                             <div class="form-floating col">
                               <input
                                 type="tel"
@@ -82,20 +84,31 @@
                                 (click)="removerCampoHorario(dia, horario)">
                                 <i class="fal fa-trash text-muted" style="cursor: pointer"></i>
                               </button>
+                              <small class="badge bg-warning" style="position: absolute;
+                              right: 67px;" *ngIf="horario.excecao">Exceção</small>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col d-flex justify-content-end">
+                    <div class="col d-flex justify-content-end" *ngIf="dia.ativo">
                       <div class="mt-2">
-                        <button type="button" *ngIf="dia.ativo && diasSemana?.length>0"
-                          class="btn btn-rounded btn-outline-default border-0"
-                          (click)="addCampoHorario(dia)">
-                          <i class="fal fa-plus text-muted" style="cursor: pointer"></i>
-                        </button>
+                        <div class="btn-group" dropdown>
+                          <button id="button-basic" dropdownToggle type="button"
+                            class="btn btn-rounded drop down-toggle btn-outline-default border-0"
+                            aria-controls="dropdown-basic">
+                            <i class="fal fa-plus text-muted" style="cursor: pointer"></i>
+                          </button>
+                          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                            role="menu" aria-labelledby="button-basic">
+                            <li role="menuitem"><a class="dropdown-item" (click)="addCampoHorario(dia, true)">
+                                {{dia?.label}} seguinte apenas</a></li>
+                            <li role="menuitem"><a class="dropdown-item" (click)="addCampoHorario(dia)">{{dia?.label}}s
+                                de todas as
+                                semanas</a></li>
+                          </ul>
+                        </div>
                       </div>
-
                     </div>
                   </div>
                 </div>

@@ -4,6 +4,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -27,6 +28,7 @@ registerLocaleData(localePt);
     TypeaheadModule,
     BsDatepickerModule,
     BrowserAnimationsModule,
+    BsDropdownModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule

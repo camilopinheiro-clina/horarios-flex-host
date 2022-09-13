@@ -4,6 +4,7 @@ export class Horario {
   idHorarioAtendimento?: any;
   idEstabelecimento?: any;
   diaSemana?: any;
+  excecao?: any;
   horarioInicial?: any;
   horarioFinal?: any;
   status?: boolean;
@@ -45,8 +46,8 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addCampoHorario(dia: any) {
-    dia.horarios = [...dia?.horarios, { horarioInicial: null, horarioFinal: null, diaSemana: dia.value }];
+  addCampoHorario(dia: any, excecao?) {
+    dia.horarios = [...dia?.horarios, { horarioInicial: null, excecao: excecao, horarioFinal: null, diaSemana: dia.value }];
   }
 
   removerCampoHorario(dia: any, horario: any) {
@@ -79,6 +80,17 @@ export class ContentComponent implements OnInit {
         horarioInicial: '13:00',
         diaSemana: a.value,
         horarioFinal: '18:00',
+      }];
+      a.ativo = true;
+      return a;
+    })
+
+    this.diasSemana.filter(a => a.value == "SEGUNDA_FEIRA").map(a => {
+      a.horarios = [...a.horarios, {
+        horarioInicial: '08:00',
+        diaSemana: a.value,
+        excecao: true,
+        horarioFinal: '12:00',
       }];
       a.ativo = true;
       return a;
