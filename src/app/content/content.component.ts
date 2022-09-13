@@ -85,17 +85,6 @@ export class ContentComponent implements OnInit {
       return a;
     })
 
-    this.diasSemana.filter(a => a.value == "SEGUNDA_FEIRA").map(a => {
-      a.horarios = [...a.horarios, {
-        horarioInicial: '08:00',
-        diaSemana: a.value,
-        excecao: true,
-        horarioFinal: '12:00',
-      }];
-      a.ativo = true;
-      return a;
-    })
-
     this.diasSemana.filter(a => a.value == "DOMINGO" || a.value == "SABADO").map(a => {
       a.ativo = false;
       return a;
