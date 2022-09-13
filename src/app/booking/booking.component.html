@@ -17,7 +17,9 @@ background-size: cover; cursor: pointer;" [routerLink]="['/']"></div>
         <div *ngIf="dataSelecionada">
           <h4 style="margin-left: 20px" class="pt-3">{{dataSelecionada| date: 'd MMMM y'}}</h4>
           <div style="height: 32em; width:20em; overflow-y: scroll" class="py-3">
-            <div class="horario" [ngClass]="{selected: horario?.selected}" (click)="horario.selected=!horario.selected"
+            <div class="horario" [ngClass]="{selected: horario?.selected, locked: horario?.locked}"
+              (click)="horario.selected=!horario.selected"
+              title="{{(horario?.locked)?'Indisponível':'Disponível'}}"
               *ngFor="let horario of sugestoesHorarios">
               <span> {{horario.hora}} <small>- R$ 10,00 </small></span>
             </div>

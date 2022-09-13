@@ -43,4 +43,10 @@ bs-datepicker-inline ::ng-deep {
     background-color: #7a35ff;
     color: white;
   }
+  &.locked {
+    background-color: #f3f3f3;
+    color: #959595;
+    cursor: not-allowed;
+    border: gray;
+  }
 }
