@@ -19,7 +19,8 @@
     }
     input {
       text-transform: capitalize;
-      height: calc(3rem - 4px) !important;
+      height: calc(3rem - 12px) !important;
+      padding-top: 1.425rem !important;
     }
   }
 }
