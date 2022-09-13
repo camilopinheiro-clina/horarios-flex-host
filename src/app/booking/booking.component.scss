@@ -1,0 +1,46 @@
+bs-datepicker-inline ::ng-deep {
+  .bs-datepicker {
+    box-shadow: none;
+    & * {
+      font-size: 94%;
+    }
+    .bs-datepicker-head {
+      background-color: transparent;
+      & * {
+        color: rgb(26, 26, 26);
+        font-weight: 100;
+      }
+      button:disabled {
+        background-color: transparent;
+        opacity: 0.1;
+      }
+    }
+    .bs-datepicker-body {
+      border: none !important;
+    }
+    span.selected {
+      background-color: #7a35ff !important;
+    }
+  }
+}
+
+.horario {
+  border: 1px solid #eee;
+  margin-top: 8px;
+  cursor: pointer;
+  margin-right: 10em;
+  padding: 8px 1em;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 3px;
+  font-weight: 300;
+  border: 1px solid #7a35ff21;
+  color: #7a35ff;
+  &:hover {
+    border: 1px solid #7a35ff;
+  }
+  &.selected {
+    background-color: #7a35ff;
+    color: white;
+  }
+}

@@ -1,0 +1,33 @@
+<div class="w-100" style="    height: 10em;
+background: url(../../assets/topo.png);
+background-position: center;
+background-size: cover; cursor: pointer;" [routerLink]="['/']"></div>
+<section class="container">
+
+  <div class="row mt-4">
+    <div class="col-9 pt-4">
+      <div class="pr-3 border pb-3 pe-3 d-flex justify-content-between w-auto" style="height:35em ;">
+        <div style="transform: scale(1.7); width: fit-content; transform-origin: top left;">
+          <div style="    border-right: 1px solid #f8f8f8!important;">
+            <bs-datepicker-inline [bsConfig]="bsConfig" [minDate]="minDate"
+              (bsValueChange)="selecionarData($event)">
+            </bs-datepicker-inline>
+          </div>
+        </div>
+        <div *ngIf="dataSelecionada">
+          <h4 style="margin-left: 20px" class="pt-3">{{dataSelecionada| date: 'd MMMM y'}}</h4>
+          <div style="height: 32em; width:20em; overflow-y: scroll" class="py-3">
+            <div class="horario" [ngClass]="{selected: horario?.selected}" (click)="horario.selected=!horario.selected"
+              *ngFor="let horario of sugestoesHorarios">
+              <span> {{horario.hora}} <small>- R$ 10,00 </small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <img src="../../assets/price.png" style="height: 30em;" alt="">
+    </div>
+  </div>
+
+</section>
