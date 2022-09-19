@@ -59,10 +59,19 @@
             "development": {
               "baseHref": "/teste/",
               "outputPath": "dist/teste",
-              "buildOptimizer": false,
+              "buildOptimizer": true,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "teste": {
+              "outputPath": "dist",
+              "buildOptimizer": true,
+              "optimization": true,
+              "vendorChunk": true,
+              "extractLicenses": true,
               "sourceMap": true,
               "namedChunks": true
             }
