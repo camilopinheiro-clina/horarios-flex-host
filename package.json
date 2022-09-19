@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
     "salva": "git add . && git commit -m 'salva' && git push",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
