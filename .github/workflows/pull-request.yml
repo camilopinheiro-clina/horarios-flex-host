@@ -1,0 +1,48 @@
+name: pull-request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+
+      - name: Checkout git repository
+        uses: actions/checkout@v2
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies with Yarn
+        run: yarn install
+
+      - name: Build
+        run: yarn build:prod
+
+      #TODO: fix lint
+      # - name: Lint
+      #   run: yarn lint
+
+      #TODO: fix test e2e
+      # - name: Test e2e
+      #   run: yarn e2e
+
+      #TODO: fix test
+      # - name: Test
+      #   run: yarn ng test --watch=false --browsers=ChromeHeadlessPuppeteer
