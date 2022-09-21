@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration teste",
+    "build": "ng build --configuration preview",
     "build:prod": "ng build --configuration production",
     "salva": "git add . && git commit -m 'salva' && git push",
     "watch": "ng build --watch --configuration development",
