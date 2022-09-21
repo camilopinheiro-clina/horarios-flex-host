@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration teste",
+    "build": "ng build --configuration preview",
     "build:prod": "ng build --configuration production",
     "salva": "git add . && git commit -m 'salva' && git push",
     "watch": "ng build --watch --configuration development",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",
+
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",

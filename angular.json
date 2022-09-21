@@ -66,8 +66,7 @@
               "sourceMap": true,
               "namedChunks": true
             },
-            "teste": {
-              "outputPath": "dist",
+            "preview": {
               "buildOptimizer": true,
               "optimization": true,
               "vendorChunk": true,

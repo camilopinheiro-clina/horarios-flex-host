@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "/dist/teste",
+    "public": "dist/nova-home",
     "ignore": [
       "firebase.json",
       "**/.*",
